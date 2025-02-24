@@ -5,36 +5,38 @@ import java.io.IOException;
 import java.io.File;
 
 public class SelectionSort {
+    public static void main(String[] args) {
+        System.out.println("Cormec");
+    }
 
     // PART A. implementing selection sort
     public static int[] selectionSort(int[] elements) {
-        for (int j = 0; j < elements.length - 1; j++) {
-            int minIndex = j;
-            for (int k = j + 1; k < elements.length; k++) {
-                if (elements[k] < elements[minIndex]) {
-                    minIndex = k;
+        for (int i = 0; i < elements.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < elements.length; j++) {
+                if (elements[j] < elements[min]) {
+                    min = j;
                 }
             }
-            int temp = elements[j];
-            elements[j] = elements[minIndex];
-            elements[minIndex] = temp;
+            int temp = elements[i];
+            elements[i] = elements[min];
+            elements[min] = temp;
         }
-
         return elements;
     }
 
 
     // PART B. sorting a 1000-word list
     public static ArrayList<String> selectionSortWordList(ArrayList<String> words) {
-        for (int j = 0; j < words.size() - 1; j++) {
-            int minIndex = j;
-            for (int k = j + 1; k < words.size(); k++) {
-                if (words.get(k).compareTo(words.get(minIndex)) < 0) {
-                    minIndex = k;
+        for (int i = 0; i < words.size() - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < words.size(); j++) {
+                if (words.get(j).compareTo(words.get(minIndex)) < 0) {
+                    minIndex = j;
                 }
             }
-            String temp = words.get(j);
-            words.set(j, words.get(minIndex));
+            String temp = words.get(i);
+            words.set(i, words.get(minIndex));
             words.set(minIndex, temp);
         }
         return words;
